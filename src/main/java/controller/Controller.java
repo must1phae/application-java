@@ -73,7 +73,7 @@ public class Controller implements Initializable {
 
             if (type == null) throw new Exception("Veuillez sélectionner un type d'employé.");
 
-            // Création de l'objet selon le type
+            // cette partie sert a creer des employé selon les types
             Employe emp;
             switch (type) {
                 case "VENDEUR" -> emp = new Vendeur(nom, age, date, val);
@@ -95,10 +95,10 @@ public class Controller implements Initializable {
         }
     }
 
-    // --- 2. Méthode MODIFIER (CELLE QUI MANQUAIT) ---
+    //  Méthode MODIFIER  ---
     @FXML
     private void modifierAction() {
-        // On récupère l'employé sélectionné dans le tableau
+        // pour recuperer l'employe selectioné
         Employe selected = table.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
@@ -107,24 +107,6 @@ public class Controller implements Initializable {
         }
 
         try {
-            // Récupération des nouvelles valeurs depuis les champs
-            // Note: Dans une vraie app complète, il faudrait une méthode updateEmployee dans GestionEmployeDB
-            // qui prend un ID. Ici, on simule une modification ou on demande l'implémentation SQL.
-
-            // Pour ce TP, si vous n'avez pas codé "updateEmployee" dans GestionEmployeDB,
-            // on affiche juste un message ou on supprime/ajoute.
-            // Voici la logique demandée par le PDF (Page 10/11) qui utilise un Dialog pour l'ID :
-
-            /* Code selon le PDF (si vous suivez strictement la page 10) :
-            TextInputDialog dialog = new TextInputDialog();
-            dialog.setTitle("Modifier un employé");
-            dialog.setContentText("ID de l'employé :");
-            Optional<String> result = dialog.showAndWait();
-            if (result.isPresent()) {
-                 int id = Integer.parseInt(result.get());
-                 // Appeler GestionEmployeDB.updateEmployee(id, ...);
-            }
-            */
 
             // Logique plus simple (basée sur la sélection du tableau) :
             showAlert("Info", "Fonctionnalité Modifier à implémenter dans GestionEmployeDB (UPDATE SQL). \nID sélectionné : " + selected.getId());
@@ -148,13 +130,13 @@ public class Controller implements Initializable {
         }
     }
 
-    // --- 4. Méthode AFFICHER ---
+    //  Méthode AFFICHER ---
     @FXML
     private void afficherAction() {
         employeeList.setAll(GestionEmployeDB.getAllEmployees());
     }
 
-    // --- 5. Méthode SALAIRE MOYEN ---
+    // Méthode SALAIRE MOYEN ---
     @FXML
     private void salaireMoyenAction() {
         double moy = GestionEmployeDB.getAverageSalary();

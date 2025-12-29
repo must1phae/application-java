@@ -12,8 +12,7 @@ public abstract class Employe {
         this.age = age;
         this.dateEntree = dateEntree;
     }
-
-    // Constructeur complet (pour la lecture depuis la BDD)
+    //constructeur d'employe
     public Employe(int id, String nom, int age, String dateEntree) {
         this.id = id;
         this.nom = nom;
