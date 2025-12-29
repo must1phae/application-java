@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException; // Import obligatoire pour l'erreur
+import java.io.IOException; // gestion des erreurs
 
 public class Main extends Application {
 
